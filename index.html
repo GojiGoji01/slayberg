@@ -1,35 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script> 
-
-    function startGame() {
- document.write("ti cho suka")
-   
-    } 
-    </script>
-  </head>
-<body>
-<div id="start-screen" class="screen" style="display:block">
-  <button onclick="startGame()">Start Game</button>
-
-</div>
-<div class="game">
-  <div id="score"></div>
-    <div id="polka"></div>
-    <div id="cactus"></div>
-    <div class="game"></div>
-    
-</div>
-
-  <script src="script.js"></script>  
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,23 +6,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script> 
-        function startGame() {
-      если да кабы 
-        });
-            
-            document.getElementById("start-screen").style.display = "none";  }
-    </script> -->
-</head>
-<body>
-    <!-- <div id="start-screen" class="screen" style="display:block">
-        <button onclick="startGame()">Start Game</button> -->
-    <!-- </div> -->
-        <div id="score"></div>
-        <div id="polka"></div>
-        <div id="cactus"></div>
-    </div>
+    <script> 
+    
+    document.addEventListener("DOMContentLoaded", function() {
+  var startButton = document.getElementById("start-button");
+  var startScreen = document.getElementById("start-screen");
+  var gameArea = document.getElementById("game-area");
 
-    <script src="script.js"></script>  
+  startButton.addEventListener("click", function() {
+    startScreen.style.display = "none"; // Скрыть начальный экран
+    gameArea.style.display = "block"; // Показать область игры
+
+    // Здесь вы можете добавить логику запуска игры
+    scoreDisplay.textContent = "Score: " + count;
+    polka.id = "polka";
+    cactus.id = "cactus";
+    gameArea.appendChild(scoreDisplay);
+    gameArea.appendChild(polka);
+    gameArea.appendChild(cactus);
+
+    // Обработчик события для прыжка
+    document.addEventListener("keydown", jump);
+
+    // Интервал для проверки столкновений
+    isAlive = setInterval(function() {
+      let polkaTop = parseInt(window.getComputedStyle(polka).getPropertyValue("top"));
+      let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
+
+      if (cactusLeft < 50 && cactusLeft > 0 && polkaTop >= 140) {
+        clearInterval(isAlive);
+        gameArea.innerHTML = ""; // Очистка области игры
+        gameArea.textContent = "Game Over! Your score: " + count;
+      }
+
+      cactus.style.left =
+        parseInt(window.getComputedStyle(cactus).getPropertyValue("left")) + "px";
+    }, 10);
+  });
+}
+  
+  );
+
+  function startGame() {
+    // Здесь находится код для запуска самой игры
+    // ...
+    const polka = document.getElementById("polka");
+    const cactus = document.getElementById("cactus");
+    const scoreDisplay = document.getElementById("score");
+
+    let count = 0;
+    let speed = 1;
+
+    document.addEventListener("keydown", function(event) {
+        jump();
+    });
+
+function jump () {
+    if (polka.classList!= "jump") {
+        polka.classList.add("jump")
+    }
+    setTimeout ( function() {
+        polka.classList.remove("jump")
+        count += 100;
+        scoreDisplay.textContent = count;
+
+        if (count % 300 == 0 && speed > 0) {
+            speed -= 0.01;
+            cactus.style.setProperty("animation", `cactusMov ${speed}s  infinite linear`);
+            
+        }
+    
+        // // // if (count % 300 == 0 && speed > 0) {
+        // //     speed -= 0.01;
+        // //    {
+        // //     esle (`cactusMov ${speed}s += 0.1s infinite linear `)
+        //    }
+    }, 300) 
+}
+
+let isAlive = setInterval(function() { 
+    let polkaTop = parseInt(window.getComputedStyle(polka).getPropertyValue("top"));
+    let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left")); 
+
+    if (cactusLeft < 50 && cactusLeft > 0 && polkaTop >= 140) {
+        alert("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@!SMOKE!!SMOKE!!SMOKE!!!SMOKE!!!SMOKE!!!!SMOKE!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ")
+        clearInterval(isAlive);
+        location.reload();
+        
+    } 
+    cactus.style.left = (parseInt(window.getComputedStyle(cactus).getPropertyValue("left"))) + "px";
+    
+   
+    
+}, 10);
+
+  };
+
+
+    </script>
+  </head>
+<body>
+<div id="start-screen" class="screen">
+  <button id="start-button">START GAME</button> 
+</div>
+<div class="game">
+  <div id="score"></div>
+    <div id="polka"></div>
+    <div id="cactus"></div>
+    <div class="game"></div>
+    
+    
+
+</div>
+<script>
+ 
+
+</script>
+  <script src="script.js"></script>  
+
+
+  
 </body>
 </html>

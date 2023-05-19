@@ -33,6 +33,25 @@ function jump () {
     }, 300) 
 }
 
+function startGame() {
+    const startButton = document.getElementById("start-button")
+    const startScreen = document.getElementById("start-screen")
+    
+    let isPaused = true;
+
+    startButton.addEventListener("click", function() { 
+
+        if (isPaused) {
+            isPaused = false;
+
+        } else {
+            return;
+        }
+
+    })
+}
+
+
 let isAlive = setInterval(function() { 
     let polkaTop = parseInt(window.getComputedStyle(polka).getPropertyValue("top"));
     let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left")); 
