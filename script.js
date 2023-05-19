@@ -36,12 +36,13 @@ function jump () {
 function startGame() {
     const startButton = document.getElementById("start-button")
     const startScreen = document.getElementById("start-screen")
-    
+
     let isPaused = true;
 
     startButton.addEventListener("click", function() { 
 
         if (isPaused) {
+            
             isPaused = false;
 
         } else {
