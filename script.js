@@ -1,11 +1,4 @@
 
-
-document.addEventListener("keydown", function(event) {
-    if (event.code === "Space") {
-        startGame();
-    }
-})
-
     const polka = document.getElementById("polka");
     const cactus = document.getElementById("cactus");
     const scoreDisplay = document.getElementById("score");
