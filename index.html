@@ -17,7 +17,7 @@
     startScreen.style.display = "none"; // Скрыть начальный экран
     gameArea.style.display = "block"; // Показать область игры
 
-    // Здесь вы можете добавить логику запуска игры
+    // логика запуска игры ...
     scoreDisplay.textContent = "Score: " + count;
     polka.id = "polka";
     cactus.id = "cactus";
@@ -25,12 +25,16 @@
     gameArea.appendChild(polka);
     gameArea.appendChild(cactus);
 
-    // Обработчик события для прыжка
+    // (Обработчик события) для прыжка
     document.addEventListener("keydown", jump);
 
     // Интервал для проверки столкновений
+
     isAlive = setInterval(function() {
+  // Функция parseInt() анализирует строковый аргумент и 
+ // возвращает целое число по указанной системе счисления 
       let polkaTop = parseInt(window.getComputedStyle(polka).getPropertyValue("top"));
+// Метод getComputedStyle() получает вычисленные свойства CSS и значения элемента HTML.
       let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
 
       if (cactusLeft < 50 && cactusLeft > 0 && polkaTop >= 140) {
@@ -100,7 +104,8 @@ let isAlive = setInterval(function() {
     
 }, 10);
 
-  };
+  }
+;
 
 
     </script>
