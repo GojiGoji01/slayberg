@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script> 
+
+    function startGame() {
+ document.write("ti cho suka")
+   
+    } 
+    </script>
+  </head>
+<body>
+<div id="start-screen" class="screen" style="display:block">
+  <button onclick="startGame()">Start Game</button>
+
+</div>
+<div class="game">
+  <div id="score"></div>
+    <div id="polka"></div>
+    <div id="cactus"></div>
+    <div class="game"></div>
+    
+</div>
+
+  <script src="script.js"></script>  
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script> 
+        function startGame() {
+          document.addEventListener("game"); 
+            }
+        {
+            // Здесь вы можете добавить логику для запуска игры
+            document.getElementById("start-screen").style.display = "none"; // Скрыть стартовый экран
+        }
+    </script>
+</head>
+<body>
+    <div id="start-screen" class="screen" style="display:block">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <div class="game" style="display:none"> 
+        <div id="score"></div>
+        <div id="polka"></div>
+        <div id="cactus"></div>
+    </div>
+
+    <script src="script.js"></script>  
+</body>
+</html>
